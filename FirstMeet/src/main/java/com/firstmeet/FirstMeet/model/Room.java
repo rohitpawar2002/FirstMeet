@@ -1,4 +1,4 @@
-package com.firstmeet.model;
+package com.firstmeet.FirstMeet.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
