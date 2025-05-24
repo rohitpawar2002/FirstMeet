@@ -17,4 +17,27 @@ public class Department {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int departmentId;
 	String name;
+	
+	public Department() {
+		super();
+	}
+	
+	public Department(int departmentId, String name) {
+		super();
+		this.departmentId = departmentId;
+		this.name = name;
+	}
+	
+	public int getDepartmentId() {
+		return departmentId;
+	}
+	public void setDepartmentId(int departmentId) {
+		this.departmentId = departmentId;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 }
