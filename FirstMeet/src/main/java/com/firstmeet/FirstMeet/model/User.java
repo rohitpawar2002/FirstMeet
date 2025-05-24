@@ -25,7 +25,12 @@ public class User {
 	Employee employee;
 	
 	public User() {
-		super();
+	}
+	
+	public User(String username,String password)
+	{
+		this.username=username;
+		this.password=password;
 	}
 
 	public User(String username, String password, Employee employee) {

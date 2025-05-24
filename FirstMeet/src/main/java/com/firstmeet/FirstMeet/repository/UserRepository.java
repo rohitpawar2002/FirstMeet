@@ -8,5 +8,5 @@ import com.firstmeet.FirstMeet.model.User;
 public interface UserRepository extends JpaRepository<User, String>{
 	
 	@Query(value="select username from User where username=?1 and password=?2")
-	public User customUserSearch(String userid, String pwd);
+	public String customUserSearch(String userid, String pwd);
 }
