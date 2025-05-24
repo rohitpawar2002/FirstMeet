@@ -16,7 +16,10 @@ public class User {
 	@Id
 	@Column(name="username")
 	String username;
+	
+	@Column(name="password")
 	String password;
+	
 	@OneToOne
 	@JoinColumn(name = "employee_id")
 	Employee employee;

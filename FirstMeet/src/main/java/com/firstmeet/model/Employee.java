@@ -18,9 +18,16 @@ public class Employee {
 	@Column(name="employeeId")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int employeeId;
+	
+	@Column(name="name")
 	String name;
+	
+	@Column(name="email")
 	String email;
+	
+	@Column(name="phonenumber")
 	Long phoneNumber;
+	
 	@ManyToOne
 	@JoinColumn(name = "department_id") 
 	Department department;

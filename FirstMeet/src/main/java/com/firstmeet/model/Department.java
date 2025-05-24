@@ -16,6 +16,7 @@ public class Department {
 	@Column(name="departmentId")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int departmentId;
+	
 	String name;
 	
 	public Department() {
