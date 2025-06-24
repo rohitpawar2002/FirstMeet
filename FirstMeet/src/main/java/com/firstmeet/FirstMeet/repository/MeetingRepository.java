@@ -10,10 +10,11 @@ import com.firstmeet.FirstMeet.model.MeetingScheduling;
 
 public interface MeetingRepository extends JpaRepository<MeetingScheduling, Integer> {
 	
-	@Query("SELECT m FROM MeetingScheduling m JOIN m.invitees i WHERE i.employeeId = :employeeId AND m.endTime < CURRENT_TIMESTAMP ORDER BY m.meetingDate DESC, m.startTime DESC")
+	@Query("SELECT m FROM MeetingScheduling m JOIN m.invitees i WHERE i.employee.employeeId = :employeeId AND m.endTime < CURRENT_TIMESTAMP ORDER BY m.meetingDate DESC, m.startTime DESC")
 	List<MeetingScheduling> findPastMeetingsByInvitee(@Param("employeeId") int employeeId);
 
-	@Query("SELECT m FROM MeetingScheduling m JOIN m.invitees i WHERE i.employeeId = :employeeId AND m.endTime > CURRENT_TIMESTAMP")
+	@Query("SELECT m FROM MeetingScheduling m JOIN m.invitees i WHERE i.employee.employeeId = :employeeId AND m.endTime > CURRENT_TIMESTAMP")
 	List<MeetingScheduling> findUpcomingMeetingsByInvitee(@Param("employeeId") int employeeId);
 
 }
+

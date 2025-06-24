@@ -44,5 +44,23 @@ public class UserDataController {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("error");
             });
     }
+    
+    @PostMapping("/logout")
+    public ResponseEntity<String> logoutUser(HttpServletRequest request, HttpServletResponse response) {
+        // Invalidate the cookie
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if ("user".equals(cookie.getName())) {
+                    cookie.setValue("");
+                    cookie.setPath("/");
+                    cookie.setMaxAge(0); // Deletes the cookie
+                    response.addCookie(cookie);
+                    break;
+                }
+            }
+        }
+        return ResponseEntity.ok("logged out");
+    }
 
 }

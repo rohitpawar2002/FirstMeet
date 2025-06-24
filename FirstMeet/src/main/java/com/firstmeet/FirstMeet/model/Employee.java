@@ -16,7 +16,7 @@ public class Employee {
 	
 	@Id
 	@Column(name="employeeId")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	int employeeId;
 	
 	@Column(name="name")
@@ -28,6 +28,9 @@ public class Employee {
 	@Column(name="phonenumber")
 	Long phoneNumber;
 	
+	@Column(name="role")
+	String role;
+	
 	@ManyToOne
 	@JoinColumn(name = "department_id") 
 	Department department;
@@ -36,15 +39,24 @@ public class Employee {
 		super();
 	}
 	
-	public Employee(int employeeId, String name, String email, Long phoneNumber, Department department) {
+	public Employee(int employeeId, String name, String email, Long phoneNumber, String role, Department department) {
 		super();
 		this.employeeId = employeeId;
 		this.name = name;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
+		this.role = role;
 		this.department = department;
 	}
-	 
+	
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
 	public int getEmployeeId() {
 		return employeeId;
 	}
